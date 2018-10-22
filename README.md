@@ -8,17 +8,17 @@ How do you make an S3 bucket publicy readable and accessible via unauthenticated
 
 - Create the bucket
 
-```
-aws s3 mb s3://NAMEOFTHEBUCKETGOESHERE
-```
+    ```
+    aws s3 mb s3://NAMEOFTHEBUCKETGOESHERE
+    ```
 
 - Try using curl
 
-```
-echo HELLO > hello.txt
-aws s3 cp hello.txt s3://NAMEOFTHEBUCKETGOESHERE/
-curl https://NAMEOFTHEBUCKETGOESHERE.s3.amazonaws.com/hello.txt
-```
+    ```
+    echo HELLO > hello.txt
+    aws s3 cp hello.txt s3://NAMEOFTHEBUCKETGOESHERE/
+    curl https://NAMEOFTHEBUCKETGOESHERE.s3.amazonaws.com/hello.txt
+    ```
 
 This should result in a 403 now because the bucket policy is not set.
 
@@ -26,23 +26,23 @@ This should result in a 403 now because the bucket policy is not set.
 
 - Apply using
 
-```
-aws s3api put-bucket-policy --bucket NAMEOFTHEBUCKETGOESHERE --policy file://policy.json
-```
+    ```
+    aws s3api put-bucket-policy --bucket NAMEOFTHEBUCKETGOESHERE --policy file://policy.json
+    ```
 
 - Find the public S3 bucket here ([docs](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingBucket.html#access-bucket-intro)):
 
-```
-https://NAMEOFTHEBUCKETGOESHERE.s3.amazonaws.com
-```
+    ```
+    https://NAMEOFTHEBUCKETGOESHERE.s3.amazonaws.com
+    ```
 
 - The `curl` command you tried above should work now
 
 - You can upload a folder now:
 
-```
-aws s3 sync public/ s3://NAMEOFTHEBUCKETGOESHERE/
-```
+    ```
+    aws s3 sync public/ s3://NAMEOFTHEBUCKETGOESHERE/
+    ```
 
 ## Simple Lambda/API Gateway REST api for Node.js
 
