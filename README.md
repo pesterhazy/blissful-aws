@@ -20,7 +20,7 @@ How do you make an S3 bucket publicy readable and accessible via unauthenticated
     curl https://NAMEOFTHEBUCKETGOESHERE.s3.amazonaws.com/hello.txt
     ```
 
-This should result in a 403 now because the bucket policy is not set.
+    This should result in a 403 now because the bucket policy is not set.
 
 - Use [this policy document](s3/s3-bucket-public/s3-bucket-public-readable-policy.json). Make sure you replace NAMEOFTHEBUCKETGOESHERE with the catual name of the S3 bucket
 
