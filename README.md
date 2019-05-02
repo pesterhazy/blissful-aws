@@ -17,7 +17,7 @@ How do you make an S3 bucket publicy readable and accessible via unauthenticated
     ```
     echo HELLO > hello.txt
     aws s3 cp hello.txt s3://NAMEOFTHEBUCKETGOESHERE/
-    curl https://NAMEOFTHEBUCKETGOESHERE.s3.amazonaws.com/hello.txt
+    curl --location https://NAMEOFTHEBUCKETGOESHERE.s3.amazonaws.com/hello.txt
     ```
 
     This should result in a 403 now because the bucket policy is not set.
